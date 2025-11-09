@@ -46,8 +46,8 @@ const LaptopFilter = (props) => {
                 />
               }
               <div className='flex justify-between mt-3 text-sm text-green-700 font-semibold'>
-                <span>₹{priceFilter[0]}</span>
-                <span>₹{priceFilter[1]}</span>
+                <span>₹ {priceFilter[0]}</span>
+                <span>₹ {priceFilter[1]}</span>
               </div>
             </div>
           </div>

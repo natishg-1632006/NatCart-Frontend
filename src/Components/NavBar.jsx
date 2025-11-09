@@ -1,12 +1,16 @@
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {NavLink, useNavigate} from "react-router-dom"
+import CartSidebar from "./Cart/CartSidebar";
+import { AppContext } from "../Context/AppContext";
 
 const NavBar = () => {
   const [dropDown, setDropDown] = useState(false);
+  const [isCartOpen,setIsCartOpen]=useState(false);
   const Navigate=useNavigate();
+  const {addItems}=useContext(AppContext);
 
   function handelDown() {
     setDropDown(!dropDown);
@@ -40,17 +44,21 @@ const NavBar = () => {
                 </div>
               </div>
 
+               <div><NavLink to="/AddProduct" className="nav-link">Add Products</NavLink></div>
+
               <div><a href="#" className="nav-link">Contact</a></div>
-              <div className="relative">
-                <span className="absolute text-[11px] left-4 -top-1 bg-green-700  text-white rounded-full h-4 w-4 text-center ">0</span>
-              <div className="text-2xl duration-500 text-green-800 cursor-pointer hover:text-amber-600"><FaShoppingCart /></div>
+
+              <div className="relative" onClick={()=>setIsCartOpen(prev=>!prev)}>
+                <span className="absolute text-[11px] left-4 -top-1 bg-green-700  text-white rounded-full h-4 w-4 text-center ">{addItems.length}</span>
+              <div className="text-2xl duration-500 text-green-800 cursor-pointer hover:text-green-600"><FaShoppingCart /></div>
               </div>
+
                 <button className="bg-green-900 px-3 py-1 rounded-full text-white cursor-pointer duration-500 hover:bg-green-600" onClick={handelLogin}>Log in</button>
             </ul>
-
           </div>
         </nav>
       </header>
+      <CartSidebar isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
     </>
   )
 }

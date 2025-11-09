@@ -37,8 +37,8 @@ const MobileFilter = (props) => {
                 <input type="range" className='w-45 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ' min={mobileMinMax[0]} max={mobileMinMax[1]} value={mobilePrice[1]} onChange={(e) => (setMobilePrice([mobilePrice[0], parseInt(e.target.value)]))} />
               }
               <div className='flex justify-between text-green-700 font-semibold'>
-                <span>{mobilePrice[0]}</span>
-                <span>{mobilePrice[1]}</span>
+                <span>₹ {mobilePrice[0]}</span>
+                <span>₹ {mobilePrice[1]}</span>
               </div>
             </div>
           </div>
@@ -166,8 +166,6 @@ const MobileFilter = (props) => {
             </div>
           </div>
         </div>
-        {console.log(selectedBattery)
-        }
       </div>
     </>
   )

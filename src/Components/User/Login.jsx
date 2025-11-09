@@ -1,7 +1,13 @@
 import React from 'react'
 import { IoIosArrowForward } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+const Navigate=useNavigate()
+  function signUp(){
+    Navigate("/signup");
+  }
+
   return (
     <>
     <div className='w-full h-screen flex justify-center items-center bg-green-100 fixed'>
@@ -15,7 +21,7 @@ const Login = () => {
 
             <div className='flex flex-col gap-2'>
                 <label htmlFor="userInput" className='font-bold text-green-700'>Password:</label>
-                <input type="password" id='userInput' placeholder='Enter your mail' className='p-3 bg-green-100 rounded-lg outline-none'/>
+                <input type="password" id='userPassword' placeholder='Enter your Password' className='p-3 bg-green-100 rounded-lg outline-none'/>
             </div>
             <button type='submit' className='bg-green-800 p-2 text-white rounded-lg cursor-pointer'>Login</button>
         </form>
@@ -26,7 +32,7 @@ const Login = () => {
             </div>
 
             <div>
-                <a href="" className='flex justify-center items-center text-green-800 font-semibold'>Sign Up <IoIosArrowForward /></a>
+                <button className='flex justify-center items-center cursor-pointer text-green-800 font-semibold' onClick={signUp}>Sign Up <IoIosArrowForward/></button>
             </div>
         </div>
       </div>
